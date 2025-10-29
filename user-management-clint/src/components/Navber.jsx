@@ -1,16 +1,11 @@
-import { Link } from "react-router";
+import React from 'react';
+import { Link } from 'react-router';
 
 const Navber = () => {
-  const links = (
-    <>
-      <li>
-        <Link to={"/"}>Home</Link>
-      </li>
-      <li>
-        <Link to={"/adduser"}>AddUser</Link>
-      </li>
-    </>
-  );
+  const links = <>
+    <li><Link to={"/"}>Home</Link></li>
+    <li><Link>About</Link></li>
+  </>
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -42,7 +37,9 @@ const Navber = () => {
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-1">
+       {links}
+        </ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>

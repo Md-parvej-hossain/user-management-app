@@ -1,10 +1,14 @@
+import { use } from 'react';
 import Users from '../components/Users';
-const usetsData = fetch('http://localhost:5000/users').then(res => res.json());
-
+const userPromise = fetch('http://localhost:5000/users').then(res =>
+  res.json()
+);
 const Home = () => {
+  const user = use(userPromise);
+ 
   return (
     <div>
-      <Users usetsData={usetsData} />
+      <Users user={user}></Users>
     </div>
   );
 };

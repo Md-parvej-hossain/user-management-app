@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
-import addUserForm from '../components/addUserForm';
+import UserDetals from '../components/UserDetals';
+import Update from '../components/Update';
 
 export const router = createBrowserRouter([
   {
@@ -14,8 +15,15 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: '/adduser',
-        Component: addUserForm,
+        path: 'users/:id',
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/users/${params.id}`),
+        Component: UserDetals,
+      },
+      {
+        path: 'update/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`),
+        Component: Update,
       },
     ],
   },
